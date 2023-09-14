@@ -1,5 +1,7 @@
 :root {
   font-size: medium;
+  --foreground-colour: #333;
+  --background-colour: #fff;
 }
 
 body {
@@ -9,6 +11,8 @@ body {
 .calculator-root {
   max-width: 22rem;
   min-height: 34rem;
+  border: 0.13rem solid var(--foreground-colour);
+  border-radius: 0.5rem;
   margin: 1rem auto 0;
   padding: 1%;
   display: flex;
