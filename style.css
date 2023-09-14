@@ -1,3 +1,12 @@
 :root {
   font-size: medium;
 }
+
+body {
+  margin: 0;
+}
+
+.calculator-root {
+  max-width: 22rem;
+  min-height: 34rem;
+}
