@@ -9,4 +9,5 @@ body {
 .calculator-root {
   max-width: 22rem;
   min-height: 34rem;
+  margin: 1rem auto 0;
 }
