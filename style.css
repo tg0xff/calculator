@@ -10,4 +10,38 @@ body {
   max-width: 22rem;
   min-height: 34rem;
   margin: 1rem auto 0;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+}
+
+.screen-root {
+  flex: 1 1;
+}
+
+.buttons-root {
+  flex: 9 9;
+  display: flex;
+}
+
+.buttons-numbers {
+  flex: 3 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.3333333%;
+}
+
+.buttons-numbers > * {
+  flex: 0 0 30%;
+}
+
+.buttons-operators {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3.3333333%;
+}
+
+.buttons-operators > * {
+  flex: 1 1;
 }
