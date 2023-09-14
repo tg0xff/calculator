@@ -19,9 +19,9 @@ button {
 }
 
 .calculator-root {
-  max-width: 22rem;
-  min-height: 34rem;
-  border: 0.13rem solid var(--foreground-colour);
+  max-width: 28rem;
+  min-height: 40rem;
+  border: 0.15rem solid var(--foreground-colour);
   border-radius: 0.5rem;
   margin: 1rem auto 0;
   padding: 1%;
