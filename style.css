@@ -31,10 +31,22 @@ button {
 
 .screen-root {
   flex: 1 1;
+  display: flex;
+  align-items: center;
+}
+
+.screen {
+  flex: 1;
+  color: var(--foreground-colour);
+  font-family: sans-serif;
+  font-size: 3rem;
+  padding: 0.5rem 0.2rem;
+  border: 0.1rem solid var(--foreground-colour);
+  border-radius: 0.5rem;
 }
 
 .buttons-root {
-  flex: 9 9;
+  flex: 4 4;
   display: flex;
 }
 
