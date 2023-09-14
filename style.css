@@ -8,6 +8,16 @@ body {
   margin: 0;
 }
 
+button {
+  color: var(--foreground-colour);
+  background-color: var(--background-colour);
+  font-size: 1.8rem;
+  padding: 0;
+  border: none;
+  box-shadow: 0.3rem 0.3rem 0 var(--foreground-colour);
+  border-radius: 0.5rem;
+}
+
 .calculator-root {
   max-width: 22rem;
   min-height: 34rem;
