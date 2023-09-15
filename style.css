@@ -2,6 +2,7 @@
   font-size: medium;
   --foreground-colour: #333;
   --background-colour: #fff;
+  --hover-colour: #ccc;
 }
 
 body {
@@ -16,6 +17,10 @@ button {
   border: none;
   box-shadow: 0.3rem 0.3rem 0 var(--foreground-colour);
   border-radius: 0.5rem;
+}
+
+button:hover {
+  background-color: var(--hover-colour);
 }
 
 .calculator-root {
