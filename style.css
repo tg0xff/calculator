@@ -66,6 +66,10 @@ button:hover {
   flex: 0 0 30%;
 }
 
+.nought {
+  flex: 0 0 63%;
+}
+
 .buttons-operators {
   flex: 1 1;
   display: flex;
