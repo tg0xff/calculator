@@ -2,38 +2,38 @@ const buttons = document.querySelectorAll("button");
 let backgroundColorContainer = "";
 let boxShadowContainer = "";
 
-function add(summand1, summand2) {
-  return summand1 + summand2;
+function add(summand0, summand1) {
+  return summand0 + summand1;
 }
 
 function subtract(minuend, subtrahend) {
   return minuend - subtrahend;
 }
 
-function multiply(factor1, factor2) {
-  return factor1 * factor2;
+function multiply(factor0, factor1) {
+  return factor0 * factor1;
 }
 
 function divide(dividend, divisor) {
   return dividend / divisor;
 }
 
-function operate(operand1, operator, operand2) {
+function operate(operand0, operator, operand1) {
   switch (operator) {
     case "+":
-      add(operand1, operand2);
+      add(operand0, operand1);
       break;
 
     case "−":
-      subtract(operand1, operand2);
+      subtract(operand0, operand1);
       break;
 
     case "×":
-      multiply(operand1, operand2);
+      multiply(operand0, operand1);
       break;
 
     case "÷":
-      divide(operand1, operand2);
+      divide(operand0, operand1);
       break;
   }
 }
