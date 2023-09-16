@@ -1,6 +1,7 @@
 const buttons = document.querySelectorAll("button");
 let backgroundColorContainer = "";
 let boxShadowContainer = "";
+let math_expression = [];
 
 function add(summand0, summand1) {
   return summand0 + summand1;
@@ -31,6 +32,50 @@ function operate(operand0, operator, operand1) {
 
     case "÷":
       return divide(operand0, operand1);
+  }
+}
+
+function getOperatorIndex(operator0, operator1) {
+  const oindex0 = math_expression.indexOf(operator0);
+  const oindex1 = math_expression.indexOf(operator1);
+
+  if (oindex0 !== -1) {
+    return oindex0 < oindex1 ? oindex0 : oindex1;
+  } else {
+    return oindex1;
+  }
+}
+
+function calculateOperation(opstr0, opstr1, keepGoing) {
+  const oindex = getOperatorIndex(opstr0, opstr1);
+  const operator = math_expression[oindex];
+  const operand0 = math_expression[oindex - 1];
+  const operand1 = math_expression[oindex + 1];
+
+  if (operand1 && operand0) {
+    math_expression.splice(
+      oindex - 1,
+      3,
+      operate(operand0, operator, operand1),
+    );
+  } else {
+    math_expression = [""];
+    keepGoing = false;
+  }
+
+  return keepGoing;
+}
+
+function calculateResult() {
+  let keepGoing = true;
+  while (keepGoing) {
+    if (math_expression.includes("×") || math_expression.includes("÷")) {
+      keepGoing = calculateOperation("×", "÷");
+    } else if (math_expression.includes("+") || math_expression.includes("−")) {
+      keepGoing = calculateOperation("+", "−");
+    } else {
+      keepGoing = false;
+    }
   }
 }
 
