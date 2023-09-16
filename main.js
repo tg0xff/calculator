@@ -18,6 +18,26 @@ function divide(dividend, divisor) {
   return dividend / divisor;
 }
 
+function operate(operand1, operator, operand2) {
+  switch (operator) {
+    case "+":
+      add(operand1, operand2);
+      break;
+
+    case "−":
+      subtract(operand1, operand2);
+      break;
+
+    case "×":
+      multiply(operand1, operand2);
+      break;
+
+    case "÷":
+      divide(operand1, operand2);
+      break;
+  }
+}
+
 function styleWhileClicking(e) {
   backgroundColorContainer = e.target.style["background-color"];
   boxShadowContainer = e.target.style["box-shadow"];
