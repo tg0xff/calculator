@@ -21,20 +21,16 @@ function divide(dividend, divisor) {
 function operate(operand0, operator, operand1) {
   switch (operator) {
     case "+":
-      add(operand0, operand1);
-      break;
+      return add(operand0, operand1);
 
     case "−":
-      subtract(operand0, operand1);
-      break;
+      return subtract(operand0, operand1);
 
     case "×":
-      multiply(operand0, operand1);
-      break;
+      return multiply(operand0, operand1);
 
     case "÷":
-      divide(operand0, operand1);
-      break;
+      return divide(operand0, operand1);
   }
 }
 
