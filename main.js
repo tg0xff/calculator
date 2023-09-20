@@ -110,8 +110,18 @@ function inputNumber(e) {
   }
 }
 
+function inputNought() {
+  if (math_expression[math_expression.length - 1] !== "0") {
+    math_expression[math_expression.length - 1] += "0";
+  }
+}
+
 function execButtonAction(e) {
   switch (e.target.textContent) {
+    case "0":
+      inputNought();
+      break;
+
     case "1":
     case "2":
     case "3":
