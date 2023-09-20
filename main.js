@@ -112,8 +112,26 @@ function inputNumber(e) {
   }
 }
 
+function execButtonAction(e) {
+  switch (e.target.textContent) {
+    case "1":
+    case "2":
+    case "3":
+    case "4":
+    case "5":
+    case "6":
+    case "7":
+    case "8":
+    case "9":
+      inputNumber(e);
+      break;
+  }
+  updateScreen();
+}
+
 function buttonEventListeners(button) {
   styleButtonClick(button);
+  button.addEventListener("click", execButtonAction);
 }
 
 updateScreen();
