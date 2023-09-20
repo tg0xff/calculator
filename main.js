@@ -1,7 +1,7 @@
 const buttons = document.querySelectorAll("button");
 let backgroundColorContainer = "";
 let boxShadowContainer = "";
-let math_expression = [];
+let math_expression = ["0"];
 
 function add(summand0, summand1) {
   return summand0 + summand1;
@@ -101,3 +101,10 @@ function styleButtonClick(button) {
 }
 
 buttons.forEach((button) => styleButtonClick(button));
+function updateScreen() {
+  const screen = document.getElementById("screen");
+  screen.textContent = math_expression[math_expression.length - 1];
+}
+
+updateScreen();
+
