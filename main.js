@@ -104,6 +104,14 @@ function updateScreen() {
   screen.textContent = math_expression[math_expression.length - 1];
 }
 
+function inputNumber(e) {
+  if (math_expression[math_expression.length - 1] !== "0") {
+    math_expression[math_expression.length - 1] += e.target.textContent;
+  } else {
+    math_expression[math_expression.length - 1] = e.target.textContent;
+  }
+}
+
 function buttonEventListeners(button) {
   styleButtonClick(button);
 }
