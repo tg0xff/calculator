@@ -101,7 +101,9 @@ function styleButtonClick(button) {
 
 function updateScreen() {
   const screen = document.getElementById("screen");
-  screen.textContent = math_expression[math_expression.length - 1];
+  let newContent = math_expression[math_expression.length - 1];
+  newContent = newContent.slice(-12);
+  screen.textContent = newContent;
 }
 
 function inputNumber(e) {
