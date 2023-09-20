@@ -96,11 +96,6 @@ function styleAfterClicking(e) {
   boxShadowContainer = "";
 }
 
-function styleButtonClick(button) {
-  button.addEventListener("mousedown", styleWhileClicking);
-  button.addEventListener("mouseup", styleAfterClicking);
-}
-
 function updateScreen() {
   let newContent = math_expression[math_expression.length - 1];
   newContent = newContent.slice(-12);
@@ -133,7 +128,8 @@ function execButtonAction(e) {
 }
 
 function buttonEventListeners(button) {
-  styleButtonClick(button);
+  button.addEventListener("mousedown", styleWhileClicking);
+  button.addEventListener("mouseup", styleAfterClicking);
   button.addEventListener("click", execButtonAction);
 }
 
