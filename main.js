@@ -1,4 +1,3 @@
-const buttons = document.querySelectorAll("button");
 let backgroundColorContainer = "";
 let boxShadowContainer = "";
 let math_expression = ["0"];
@@ -100,11 +99,16 @@ function styleButtonClick(button) {
   button.addEventListener("mouseup", styleAfterClicking);
 }
 
-buttons.forEach((button) => styleButtonClick(button));
 function updateScreen() {
   const screen = document.getElementById("screen");
   screen.textContent = math_expression[math_expression.length - 1];
 }
 
+function buttonEventListeners(button) {
+  styleButtonClick(button);
+}
+
 updateScreen();
 
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => buttonEventListeners(button));
