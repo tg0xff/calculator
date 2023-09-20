@@ -1,3 +1,5 @@
+const screen = document.getElementById("screen");
+const buttons = document.querySelectorAll("button");
 let backgroundColorContainer = "";
 let boxShadowContainer = "";
 let math_expression = ["0"];
@@ -100,7 +102,6 @@ function styleButtonClick(button) {
 }
 
 function updateScreen() {
-  const screen = document.getElementById("screen");
   let newContent = math_expression[math_expression.length - 1];
   newContent = newContent.slice(-12);
   screen.textContent = newContent;
@@ -137,6 +138,4 @@ function buttonEventListeners(button) {
 }
 
 updateScreen();
-
-const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => buttonEventListeners(button));
