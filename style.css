@@ -48,6 +48,7 @@ button:hover {
   padding: 0.5rem 0.2rem;
   border: 0.1rem solid var(--foreground-colour);
   border-radius: 0.5rem;
+  overflow: auto;
 }
 
 .buttons-root {
