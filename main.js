@@ -100,7 +100,7 @@ function styleAfterClicking(e) {
 function updateScreen() {
   let number = math_expression[math_expression.length - 1];
   let newContent = number;
-  newContent = newContent.slice(-13) + (number.length > 13 ? "…" : "");
+  newContent = (number.length > 13 ? "…" : "") + newContent.slice(-13);
   screen.textContent = newContent;
 }
 
