@@ -50,12 +50,19 @@ function operate(operand0, operator, operand1) {
 function getOperatorIndex(operator0, operator1) {
   const oindex0 = math_expression.indexOf(operator0);
   const oindex1 = math_expression.indexOf(operator1);
+  let index;
 
-  if (oindex1 === -1 || oindex0 < oindex1) {
-    return oindex0;
+  if (oindex0 === -1) {
+    index = oindex1;
+  } else if (oindex1 === -1) {
+    index = oindex0;
+  } else if (oindex0 < oindex1) {
+    index = oindex0;
   } else {
-    return oindex1;
+    index = oindex1;
   }
+
+  return index;
 }
 
 function calculateOperation(opstr0, opstr1, keepGoing) {
