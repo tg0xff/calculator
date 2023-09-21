@@ -27,23 +27,14 @@ function operate(operand0, operator, operand1) {
   operand0 = +operand0;
   operand1 = +operand1;
 
-  switch (operator) {
-    case "+":
-      result = add(operand0, operand1);
-      break;
+  const operfunc = {
+    "+": add,
+    "−": subtract,
+    "×": multiply,
+    "÷": divide,
+  }[operator];
 
-    case "−":
-      result = subtract(operand0, operand1);
-      break;
-
-    case "×":
-      result = multiply(operand0, operand1);
-      break;
-
-    case "÷":
-      result = divide(operand0, operand1);
-      break;
-  }
+  result = operfunc(operand0, operand1);
 
   return result.toString();
 }
@@ -140,46 +131,28 @@ function clearScreen() {
 }
 
 function execButtonAction(e) {
-  switch (e.target.textContent) {
-    case "0":
-      inputNought();
-      break;
+  const buttonfunc = {
+    0: inputNought,
+    1: inputNumber,
+    2: inputNumber,
+    3: inputNumber,
+    4: inputNumber,
+    5: inputNumber,
+    6: inputNumber,
+    7: inputNumber,
+    8: inputNumber,
+    9: inputNumber,
+    ".": inputPoint,
+    "÷": inputOperation,
+    "×": inputOperation,
+    "−": inputOperation,
+    "+": inputOperation,
+    "⌫": inputBackspace,
+    C: clearScreen,
+    "=": calculateResult,
+  }[e.target.textContent];
 
-    case "1":
-    case "2":
-    case "3":
-    case "4":
-    case "5":
-    case "6":
-    case "7":
-    case "8":
-    case "9":
-      inputNumber(e);
-      break;
-
-    case ".":
-      inputPoint();
-      break;
-
-    case "÷":
-    case "×":
-    case "−":
-    case "+":
-      inputOperation(e);
-      break;
-
-    case "C":
-      clearScreen();
-      break;
-
-    case "=":
-      calculateResult();
-      break;
-
-    case "⌫":
-      inputBackspace();
-      break;
-  }
+  buttonfunc(e);
   updateScreen();
 }
 
