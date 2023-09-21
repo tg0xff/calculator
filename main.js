@@ -167,3 +167,4 @@ function recogniseKeybindings(e) {
 
 updateScreen();
 buttons.forEach((button) => buttonEventListeners(button));
+window.addEventListener("keydown", recogniseKeybindings);
