@@ -47,6 +47,9 @@ const keysToIds = {
   Digit8: "calc-8",
   Numpad9: "calc-9",
   Digit9: "calc-9",
+  NumpadEqual: "calc-equals",
+  NumpadEnter: "calc-equals",
+  Enter: "calc-equals",
 };
 let backgroundColorContainer = "";
 let boxShadowContainer = "";
