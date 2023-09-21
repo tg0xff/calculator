@@ -1,5 +1,6 @@
 const screen = document.getElementById("screen");
 const buttons = document.querySelectorAll("button");
+const SCREEN_CHARS = 13;
 const operatorFuncs = {
   "+": add,
   "−": subtract,
@@ -132,7 +133,9 @@ function styleAfterClicking(e) {
 function updateScreen() {
   let number = calculatorNumbers[calculatorNumbers.length - 1];
   let newContent = number;
-  newContent = (number.length > 13 ? "…" : "") + newContent.slice(-13);
+  newContent =
+    (number.length > SCREEN_CHARS ? "…" : "") +
+    newContent.slice(SCREEN_CHARS * -1);
   screen.textContent = newContent;
 }
 
