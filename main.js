@@ -49,8 +49,20 @@ function operate(operand0, operator, operand1) {
 }
 
 function calculateResult() {
-  let keepGoing = true;
-  while (keepGoing) {}
+  let operand0;
+  let operand1;
+  let operator;
+  let result;
+  calculator_numbers.reverse();
+  calculator_operations.reverse();
+
+  while (calculator_operations.length > 0) {
+    operand0 = calculator_numbers.pop();
+    operand1 = calculator_numbers.pop();
+    operator = calculator_operations.pop();
+    result = operate(operand0, operator, operand1);
+    calculator_numbers.push(result);
+  }
 }
 
 function styleWhileClicking(e) {
