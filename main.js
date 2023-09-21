@@ -1,5 +1,31 @@
 const screen = document.getElementById("screen");
 const buttons = document.querySelectorAll("button");
+const operator_funcs = {
+  "+": add,
+  "−": subtract,
+  "×": multiply,
+  "÷": divide,
+};
+const button_funcs = {
+  0: inputNought,
+  1: inputNumber,
+  2: inputNumber,
+  3: inputNumber,
+  4: inputNumber,
+  5: inputNumber,
+  6: inputNumber,
+  7: inputNumber,
+  8: inputNumber,
+  9: inputNumber,
+  ".": inputPoint,
+  "÷": inputOperation,
+  "×": inputOperation,
+  "−": inputOperation,
+  "+": inputOperation,
+  "⌫": inputBackspace,
+  C: clearScreen,
+  "=": calculateResult,
+};
 let backgroundColorContainer = "";
 let boxShadowContainer = "";
 let calculator_numbers = ["0"];
@@ -26,16 +52,8 @@ function operate(operand0, operator, operand1) {
   let result;
   operand0 = +operand0;
   operand1 = +operand1;
-
-  const operfunc = {
-    "+": add,
-    "−": subtract,
-    "×": multiply,
-    "÷": divide,
-  }[operator];
-
-  result = operfunc(operand0, operand1);
-
+  const operf = operator_funcs[operator];
+  result = operf(operand0, operand1);
   return result.toString();
 }
 
@@ -131,28 +149,8 @@ function clearScreen() {
 }
 
 function execButtonAction(e) {
-  const buttonfunc = {
-    0: inputNought,
-    1: inputNumber,
-    2: inputNumber,
-    3: inputNumber,
-    4: inputNumber,
-    5: inputNumber,
-    6: inputNumber,
-    7: inputNumber,
-    8: inputNumber,
-    9: inputNumber,
-    ".": inputPoint,
-    "÷": inputOperation,
-    "×": inputOperation,
-    "−": inputOperation,
-    "+": inputOperation,
-    "⌫": inputBackspace,
-    C: clearScreen,
-    "=": calculateResult,
-  }[e.target.textContent];
-
-  buttonfunc(e);
+  const buttonf = button_funcs[e.target.textContent];
+  buttonf(e);
   updateScreen();
 }
 
