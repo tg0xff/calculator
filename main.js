@@ -60,6 +60,10 @@ const keysToIds = {
   NumpadEqual: "calc-equals",
   NumpadEnter: "calc-equals",
   Enter: "calc-equals",
+  Delete: "calc-backspace",
+  Backspace: "calc-backspace",
+  Insert: "calc-clear",
+  KeyC: "calc-clear",
 };
 let backgroundColorContainer = "";
 let boxShadowContainer = "";
