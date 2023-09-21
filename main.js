@@ -118,6 +118,22 @@ function inputOperation(e) {
   isDecimalFraction = false;
 }
 
+function inputBackspace() {
+  const lastIndex = calculator_numbers.length - 1;
+  const numString = calculator_numbers[lastIndex];
+  const lastChar = numString.slice(-1);
+
+  if (numString.length > 1) {
+    calculator_numbers[lastIndex] = numString.slice(0, -1);
+  } else {
+    calculator_numbers[lastIndex] = "0";
+  }
+
+  if (lastChar === ".") {
+    isDecimalFraction = false;
+  }
+}
+
 function clearScreen() {
   calculator_numbers = ["0"];
   isDecimalFraction = false;
@@ -158,6 +174,10 @@ function execButtonAction(e) {
 
     case "=":
       calculateResult();
+      break;
+
+    case "⌫":
+      inputBackspace();
       break;
   }
   updateScreen();
