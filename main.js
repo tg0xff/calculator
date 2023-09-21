@@ -98,18 +98,25 @@ function operate(operand0, operator, operand1) {
 }
 
 function calculateResult() {
+  calculatorNumbers.reverse();
+  calculatorOperations.reverse();
   let operand0;
   let operand1;
   let operator;
   let result;
-  calculatorNumbers.reverse();
-  calculatorOperations.reverse();
 
   while (calculatorOperations.length > 0) {
     operand0 = calculatorNumbers.pop();
     operand1 = calculatorNumbers.pop();
     operator = calculatorOperations.pop();
     result = operate(operand0, operator, operand1);
+    calculatorNumbers.push(result);
+  }
+
+  if (result.length > SCREEN_CHARS) {
+    calculatorNumbers.pop();
+    result = Number.parseFloat(+result).toExponential(4);
+    result = result.toString();
     calculatorNumbers.push(result);
   }
 }
