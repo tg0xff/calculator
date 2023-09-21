@@ -97,8 +97,9 @@ function styleAfterClicking(e) {
 }
 
 function updateScreen() {
-  let newContent = math_expression[math_expression.length - 1];
-  newContent = newContent.slice(-12);
+  let number = math_expression[math_expression.length - 1];
+  let newContent = number;
+  newContent = newContent.slice(-13) + (number.length > 13 ? "…" : "");
   screen.textContent = newContent;
 }
 
