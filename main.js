@@ -128,6 +128,12 @@ function inputPoint() {
   }
 }
 
+function inputOperation(e) {
+  math_expression[math_expression.length] = e.target.textContent;
+  math_expression[math_expression.length] = "0";
+  isDecimalFraction = false;
+}
+
 function execButtonAction(e) {
   switch (e.target.textContent) {
     case "0":
@@ -148,6 +154,13 @@ function execButtonAction(e) {
 
     case ".":
       inputPoint();
+      break;
+
+    case "÷":
+    case "×":
+    case "−":
+    case "+":
+      inputOperation(e);
       break;
   }
   updateScreen();
