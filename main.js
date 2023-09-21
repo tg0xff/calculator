@@ -184,7 +184,10 @@ function buttonEventListeners(button) {
 
 function recogniseKeybindings(e) {
   const buttonId = keysToIds[e.code];
-  document.getElementById(buttonId).click();
+  if (buttonId) {
+    e.preventDefault();
+    document.getElementById(buttonId).click();
+  }
 }
 
 updateScreen();
