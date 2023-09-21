@@ -22,27 +22,37 @@ function divide(dividend, divisor) {
 }
 
 function operate(operand0, operator, operand1) {
+  let result;
+  operand0 = +operand0;
+  operand1 = +operand1;
+
   switch (operator) {
     case "+":
-      return add(operand0, operand1);
+      result = add(operand0, operand1);
+      break;
 
     case "−":
-      return subtract(operand0, operand1);
+      result = subtract(operand0, operand1);
+      break;
 
     case "×":
-      return multiply(operand0, operand1);
+      result = multiply(operand0, operand1);
+      break;
 
     case "÷":
-      return divide(operand0, operand1);
+      result = divide(operand0, operand1);
+      break;
   }
+
+  return result.toString();
 }
 
 function getOperatorIndex(operator0, operator1) {
   const oindex0 = math_expression.indexOf(operator0);
   const oindex1 = math_expression.indexOf(operator1);
 
-  if (oindex0 !== -1) {
-    return oindex0 < oindex1 ? oindex0 : oindex1;
+  if (oindex1 === -1 || oindex0 < oindex1) {
+    return oindex0;
   } else {
     return oindex1;
   }
@@ -54,16 +64,7 @@ function calculateOperation(opstr0, opstr1, keepGoing) {
   const operand0 = math_expression[oindex - 1];
   const operand1 = math_expression[oindex + 1];
 
-  if (operand1 && operand0) {
-    math_expression.splice(
-      oindex - 1,
-      3,
-      operate(operand0, operator, operand1),
-    );
-  } else {
-    math_expression = [""];
-    keepGoing = false;
-  }
+  math_expression.splice(oindex - 1, 3, operate(operand0, operator, operand1));
 
   return keepGoing;
 }
@@ -72,9 +73,9 @@ function calculateResult() {
   let keepGoing = true;
   while (keepGoing) {
     if (math_expression.includes("×") || math_expression.includes("÷")) {
-      keepGoing = calculateOperation("×", "÷");
+      keepGoing = calculateOperation("×", "÷", keepGoing);
     } else if (math_expression.includes("+") || math_expression.includes("−")) {
-      keepGoing = calculateOperation("+", "−");
+      keepGoing = calculateOperation("+", "−", keepGoing);
     } else {
       keepGoing = false;
     }
@@ -170,6 +171,10 @@ function execButtonAction(e) {
 
     case "C":
       clearScreen();
+      break;
+
+    case "=":
+      calculateResult();
       break;
   }
   updateScreen();
