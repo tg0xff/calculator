@@ -134,6 +134,11 @@ function inputOperation(e) {
   isDecimalFraction = false;
 }
 
+function clearScreen() {
+  math_expression = ["0"];
+  isDecimalFraction = false;
+}
+
 function execButtonAction(e) {
   switch (e.target.textContent) {
     case "0":
@@ -161,6 +166,10 @@ function execButtonAction(e) {
     case "−":
     case "+":
       inputOperation(e);
+      break;
+
+    case "C":
+      clearScreen();
       break;
   }
   updateScreen();
