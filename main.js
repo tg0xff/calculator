@@ -3,6 +3,7 @@ const buttons = document.querySelectorAll("button");
 let backgroundColorContainer = "";
 let boxShadowContainer = "";
 let math_expression = ["0"];
+let isDecimalFraction = false;
 
 function add(summand0, summand1) {
   return summand0 + summand1;
@@ -119,6 +120,14 @@ function inputNought() {
   }
 }
 
+function inputPoint() {
+  const lastIndex = math_expression.length - 1;
+  if (!isDecimalFraction) {
+    math_expression[lastIndex] += ".";
+    isDecimalFraction = true;
+  }
+}
+
 function execButtonAction(e) {
   switch (e.target.textContent) {
     case "0":
@@ -135,6 +144,10 @@ function execButtonAction(e) {
     case "8":
     case "9":
       inputNumber(e);
+      break;
+
+    case ".":
+      inputPoint();
       break;
   }
   updateScreen();
