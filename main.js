@@ -2,7 +2,8 @@ const screen = document.getElementById("screen");
 const buttons = document.querySelectorAll("button");
 let backgroundColorContainer = "";
 let boxShadowContainer = "";
-let math_expression = ["0"];
+let calculator_numbers = ["0"];
+let calculator_operations = [];
 let isDecimalFraction = false;
 
 function add(summand0, summand1) {
@@ -69,44 +70,44 @@ function styleAfterClicking(e) {
 }
 
 function updateScreen() {
-  let number = math_expression[math_expression.length - 1];
+  let number = calculator_numbers[calculator_numbers.length - 1];
   let newContent = number;
   newContent = (number.length > 13 ? "…" : "") + newContent.slice(-13);
   screen.textContent = newContent;
 }
 
 function inputNumber(e) {
-  const lastIndex = math_expression.length - 1;
-  if (math_expression[lastIndex] !== "0") {
-    math_expression[lastIndex] += e.target.textContent;
+  const lastIndex = calculator_numbers.length - 1;
+  if (calculator_numbers[lastIndex] !== "0") {
+    calculator_numbers[lastIndex] += e.target.textContent;
   } else {
-    math_expression[lastIndex] = e.target.textContent;
+    calculator_numbers[lastIndex] = e.target.textContent;
   }
 }
 
 function inputNought() {
-  const lastIndex = math_expression.length - 1;
-  if (math_expression[lastIndex] !== "0") {
-    math_expression[lastIndex] += "0";
+  const lastIndex = calculator_numbers.length - 1;
+  if (calculator_numbers[lastIndex] !== "0") {
+    calculator_numbers[lastIndex] += "0";
   }
 }
 
 function inputPoint() {
-  const lastIndex = math_expression.length - 1;
+  const lastIndex = calculator_numbers.length - 1;
   if (!isDecimalFraction) {
-    math_expression[lastIndex] += ".";
+    calculator_numbers[lastIndex] += ".";
     isDecimalFraction = true;
   }
 }
 
 function inputOperation(e) {
-  math_expression[math_expression.length] = e.target.textContent;
-  math_expression[math_expression.length] = "0";
+  calculator_numbers[calculator_numbers.length] = e.target.textContent;
+  calculator_numbers[calculator_numbers.length] = "0";
   isDecimalFraction = false;
 }
 
 function clearScreen() {
-  math_expression = ["0"];
+  calculator_numbers = ["0"];
   isDecimalFraction = false;
 }
 
