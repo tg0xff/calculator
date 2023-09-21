@@ -1,12 +1,12 @@
 const screen = document.getElementById("screen");
 const buttons = document.querySelectorAll("button");
-const operator_funcs = {
+const operatorFuncs = {
   "+": add,
   "−": subtract,
   "×": multiply,
   "÷": divide,
 };
-const button_funcs = {
+const buttonFuncs = {
   0: inputNought,
   1: inputNumber,
   2: inputNumber,
@@ -28,8 +28,8 @@ const button_funcs = {
 };
 let backgroundColorContainer = "";
 let boxShadowContainer = "";
-let calculator_numbers = ["0"];
-let calculator_operations = [];
+let calculatorNumbers = ["0"];
+let calculatorOperations = [];
 let isDecimalFraction = false;
 
 function add(summand0, summand1) {
@@ -52,8 +52,8 @@ function operate(operand0, operator, operand1) {
   let result;
   operand0 = +operand0;
   operand1 = +operand1;
-  const operf = operator_funcs[operator];
-  result = operf(operand0, operand1);
+  const operF = operatorFuncs[operator];
+  result = operF(operand0, operand1);
   return result.toString();
 }
 
@@ -62,15 +62,15 @@ function calculateResult() {
   let operand1;
   let operator;
   let result;
-  calculator_numbers.reverse();
-  calculator_operations.reverse();
+  calculatorNumbers.reverse();
+  calculatorOperations.reverse();
 
-  while (calculator_operations.length > 0) {
-    operand0 = calculator_numbers.pop();
-    operand1 = calculator_numbers.pop();
-    operator = calculator_operations.pop();
+  while (calculatorOperations.length > 0) {
+    operand0 = calculatorNumbers.pop();
+    operand1 = calculatorNumbers.pop();
+    operator = calculatorOperations.pop();
     result = operate(operand0, operator, operand1);
-    calculator_numbers.push(result);
+    calculatorNumbers.push(result);
   }
 }
 
@@ -91,51 +91,51 @@ function styleAfterClicking(e) {
 }
 
 function updateScreen() {
-  let number = calculator_numbers[calculator_numbers.length - 1];
+  let number = calculatorNumbers[calculatorNumbers.length - 1];
   let newContent = number;
   newContent = (number.length > 13 ? "…" : "") + newContent.slice(-13);
   screen.textContent = newContent;
 }
 
 function inputNumber(e) {
-  const lastIndex = calculator_numbers.length - 1;
-  if (calculator_numbers[lastIndex] !== "0") {
-    calculator_numbers[lastIndex] += e.target.textContent;
+  const lastIndex = calculatorNumbers.length - 1;
+  if (calculatorNumbers[lastIndex] !== "0") {
+    calculatorNumbers[lastIndex] += e.target.textContent;
   } else {
-    calculator_numbers[lastIndex] = e.target.textContent;
+    calculatorNumbers[lastIndex] = e.target.textContent;
   }
 }
 
 function inputNought() {
-  const lastIndex = calculator_numbers.length - 1;
-  if (calculator_numbers[lastIndex] !== "0") {
-    calculator_numbers[lastIndex] += "0";
+  const lastIndex = calculatorNumbers.length - 1;
+  if (calculatorNumbers[lastIndex] !== "0") {
+    calculatorNumbers[lastIndex] += "0";
   }
 }
 
 function inputPoint() {
-  const lastIndex = calculator_numbers.length - 1;
+  const lastIndex = calculatorNumbers.length - 1;
   if (!isDecimalFraction) {
-    calculator_numbers[lastIndex] += ".";
+    calculatorNumbers[lastIndex] += ".";
     isDecimalFraction = true;
   }
 }
 
 function inputOperation(e) {
-  calculator_operations[calculator_operations.length] = e.target.textContent;
-  calculator_numbers[calculator_numbers.length] = "0";
+  calculatorOperations[calculatorOperations.length] = e.target.textContent;
+  calculatorNumbers[calculatorNumbers.length] = "0";
   isDecimalFraction = false;
 }
 
 function inputBackspace() {
-  const lastIndex = calculator_numbers.length - 1;
-  const numString = calculator_numbers[lastIndex];
+  const lastIndex = calculatorNumbers.length - 1;
+  const numString = calculatorNumbers[lastIndex];
   const lastChar = numString.slice(-1);
 
   if (numString.length > 1) {
-    calculator_numbers[lastIndex] = numString.slice(0, -1);
+    calculatorNumbers[lastIndex] = numString.slice(0, -1);
   } else {
-    calculator_numbers[lastIndex] = "0";
+    calculatorNumbers[lastIndex] = "0";
   }
 
   if (lastChar === ".") {
@@ -144,13 +144,13 @@ function inputBackspace() {
 }
 
 function clearScreen() {
-  calculator_numbers = ["0"];
+  calculatorNumbers = ["0"];
   isDecimalFraction = false;
 }
 
 function execButtonAction(e) {
-  const buttonf = button_funcs[e.target.textContent];
-  buttonf(e);
+  const buttonF = buttonFuncs[e.target.textContent];
+  buttonF(e);
   updateScreen();
 }
 
