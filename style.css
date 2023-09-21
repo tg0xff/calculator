@@ -45,6 +45,7 @@ button:hover {
   color: var(--foreground-colour);
   font-family: monospace;
   font-size: 3rem;
+  text-align: right;
   padding: 0.5rem 0.2rem;
   border: 0.1rem solid var(--foreground-colour);
   border-radius: 0.5rem;
