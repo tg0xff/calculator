@@ -27,15 +27,25 @@ const buttonFuncs = {
   "=": calculateResult,
 };
 const keysToIds = {
+  Numpad0: "calc-0",
   Digit0: "calc-0",
+  Numpad1: "calc-1",
   Digit1: "calc-1",
+  Numpad2: "calc-2",
   Digit2: "calc-2",
+  Numpad3: "calc-3",
   Digit3: "calc-3",
+  Numpad4: "calc-4",
   Digit4: "calc-4",
+  Numpad5: "calc-5",
   Digit5: "calc-5",
+  Numpad6: "calc-6",
   Digit6: "calc-6",
+  Numpad7: "calc-7",
   Digit7: "calc-7",
+  Numpad8: "calc-8",
   Digit8: "calc-8",
+  Numpad9: "calc-9",
   Digit9: "calc-9",
 };
 let backgroundColorContainer = "";
