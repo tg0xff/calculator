@@ -160,5 +160,10 @@ function buttonEventListeners(button) {
   button.addEventListener("click", execButtonAction);
 }
 
+function recogniseKeybindings(e) {
+  const buttonId = keysToIds[e.code];
+  document.getElementById(buttonId).click();
+}
+
 updateScreen();
 buttons.forEach((button) => buttonEventListeners(button));
