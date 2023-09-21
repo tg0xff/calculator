@@ -47,6 +47,8 @@ const keysToIds = {
   Digit8: "calc-8",
   Numpad9: "calc-9",
   Digit9: "calc-9",
+  Period: "calc-point",
+  NumpadDecimal: "calc-point",
   NumpadEqual: "calc-equals",
   NumpadEnter: "calc-equals",
   Enter: "calc-equals",
