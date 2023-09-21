@@ -101,7 +101,7 @@ function inputPoint() {
 }
 
 function inputOperation(e) {
-  calculator_numbers[calculator_numbers.length] = e.target.textContent;
+  calculator_operations[calculator_operations.length] = e.target.textContent;
   calculator_numbers[calculator_numbers.length] = "0";
   isDecimalFraction = false;
 }
