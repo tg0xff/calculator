@@ -26,6 +26,18 @@ const buttonFuncs = {
   C: clearScreen,
   "=": calculateResult,
 };
+const keysToIds = {
+  Digit0: "calc-0",
+  Digit1: "calc-1",
+  Digit2: "calc-2",
+  Digit3: "calc-3",
+  Digit4: "calc-4",
+  Digit5: "calc-5",
+  Digit6: "calc-6",
+  Digit7: "calc-7",
+  Digit8: "calc-8",
+  Digit9: "calc-9",
+};
 let backgroundColorContainer = "";
 let boxShadowContainer = "";
 let calculatorNumbers = ["0"];
