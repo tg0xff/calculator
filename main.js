@@ -47,46 +47,9 @@ function operate(operand0, operator, operand1) {
   return result.toString();
 }
 
-function getOperatorIndex(operator0, operator1) {
-  const oindex0 = math_expression.indexOf(operator0);
-  const oindex1 = math_expression.indexOf(operator1);
-  let index;
-
-  if (oindex0 === -1) {
-    index = oindex1;
-  } else if (oindex1 === -1) {
-    index = oindex0;
-  } else if (oindex0 < oindex1) {
-    index = oindex0;
-  } else {
-    index = oindex1;
-  }
-
-  return index;
-}
-
-function calculateOperation(opstr0, opstr1, keepGoing) {
-  const oindex = getOperatorIndex(opstr0, opstr1);
-  const operator = math_expression[oindex];
-  const operand0 = math_expression[oindex - 1];
-  const operand1 = math_expression[oindex + 1];
-
-  math_expression.splice(oindex - 1, 3, operate(operand0, operator, operand1));
-
-  return keepGoing;
-}
-
 function calculateResult() {
   let keepGoing = true;
-  while (keepGoing) {
-    if (math_expression.includes("×") || math_expression.includes("÷")) {
-      keepGoing = calculateOperation("×", "÷", keepGoing);
-    } else if (math_expression.includes("+") || math_expression.includes("−")) {
-      keepGoing = calculateOperation("+", "−", keepGoing);
-    } else {
-      keepGoing = false;
-    }
-  }
+  while (keepGoing) {}
 }
 
 function styleWhileClicking(e) {
