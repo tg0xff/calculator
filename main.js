@@ -104,16 +104,18 @@ function updateScreen() {
 }
 
 function inputNumber(e) {
-  if (math_expression[math_expression.length - 1] !== "0") {
-    math_expression[math_expression.length - 1] += e.target.textContent;
+  const lastIndex = math_expression.length - 1;
+  if (math_expression[lastIndex] !== "0") {
+    math_expression[lastIndex] += e.target.textContent;
   } else {
-    math_expression[math_expression.length - 1] = e.target.textContent;
+    math_expression[lastIndex] = e.target.textContent;
   }
 }
 
 function inputNought() {
-  if (math_expression[math_expression.length - 1] !== "0") {
-    math_expression[math_expression.length - 1] += "0";
+  const lastIndex = math_expression.length - 1;
+  if (math_expression[lastIndex] !== "0") {
+    math_expression[lastIndex] += "0";
   }
 }
 
