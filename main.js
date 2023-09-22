@@ -1,5 +1,7 @@
 const screen = document.getElementById("screen");
 const buttons = document.querySelectorAll("button");
+const switchThemeButton = document.getElementById("switch-theme");
+const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
 const SCREEN_CHARS = 13;
 const operatorFuncs = {
   "+": add,
@@ -223,6 +225,11 @@ function recogniseKeybindings(e) {
   }
 }
 
+function updateThemeButtonText() {
+  switchThemeButton.textContent = darkModePreference.matches ? "Light" : "Dark";
+}
+
 updateScreen();
+updateThemeButtonText();
 buttons.forEach((button) => buttonEventListeners(button));
 window.addEventListener("keydown", recogniseKeybindings);
