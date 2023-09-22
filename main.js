@@ -214,20 +214,6 @@ function execButtonAction(e) {
   updateScreen();
 }
 
-function buttonEventListeners(button) {
-  button.addEventListener("mousedown", styleWhileClicking);
-  button.addEventListener("mouseup", styleAfterClicking);
-  button.addEventListener("click", execButtonAction);
-}
-
-function recogniseKeybindings(e) {
-  const buttonId = keysToIds[e.code];
-  if (buttonId) {
-    e.preventDefault();
-    document.getElementById(buttonId).click();
-  }
-}
-
 function updateThemeButtonText() {
   switchThemeButton.textContent = darkModePreference.matches ? "Light" : "Dark";
 }
@@ -235,8 +221,20 @@ function updateThemeButtonText() {
 updateScreen();
 updateThemeButtonText();
 
-buttons.forEach((button) => buttonEventListeners(button));
-window.addEventListener("keydown", recogniseKeybindings);
+buttons.forEach((button) => {
+  button.addEventListener("mousedown", styleWhileClicking);
+  button.addEventListener("mouseup", styleAfterClicking);
+  button.addEventListener("click", execButtonAction);
+});
+
+window.addEventListener("keydown", (e) => {
+  const buttonId = keysToIds[e.code];
+  if (buttonId) {
+    e.preventDefault();
+    document.getElementById(buttonId).click();
+  }
+});
+
 fractionSeparatorButton.addEventListener("click", () => {
   commaDecimalSeparator = !commaDecimalSeparator;
   fractionSeparatorButton.textContent = commaDecimalSeparator
