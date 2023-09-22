@@ -24,11 +24,14 @@ body {
 button {
   color: var(--foreground-colour);
   background-color: var(--background-colour);
-  font-size: 2.5rem;
-  padding: 0;
   border: none;
   box-shadow: 0.3rem 0.3rem 0 var(--foreground-colour);
   border-radius: 0.5rem;
+}
+
+.buttons-root button {
+  font-size: 2.5rem;
+  padding: 0;
 }
 
 button:hover {
