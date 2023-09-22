@@ -1,8 +1,20 @@
 :root {
-  font-size: medium;
   --foreground-colour: #333;
   --background-colour: #fff;
   --hover-colour: #ccc;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-colour: #ccc;
+    --background-colour: #000;
+    --hover-colour: #333;
+  }
+}
+
+:root {
+  font-size: medium;
+  color: var(--foreground-colour);
+  background-color: var(--background-colour);
 }
 
 body {
