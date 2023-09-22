@@ -93,3 +93,15 @@ button:hover {
 .buttons-operators > * {
   flex: 1 1;
 }
+
+.header {
+  min-height: 2rem;
+  padding: 0.2rem 1rem;
+  display: flex;
+  justify-content: right;
+}
+
+.header > button {
+  font-size: 2rem;
+  padding: 0.3rem;
+}
