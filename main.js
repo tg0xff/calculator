@@ -71,6 +71,7 @@ let boxShadowContainer = "";
 let calculatorNumbers = ["0"];
 let calculatorOperations = [];
 let isDecimalFraction = false;
+let commaDecimalSeparator = false;
 
 function add(summand0, summand1) {
   return summand0 + summand1;
@@ -143,6 +144,11 @@ function updateScreen() {
   newContent =
     (number.length > SCREEN_CHARS ? "…" : "") +
     newContent.slice(SCREEN_CHARS * -1);
+
+  if (commaDecimalSeparator && newContent.includes(".")) {
+    newContent = newContent.replace(".", ",");
+  }
+
   screen.textContent = newContent;
 }
 
