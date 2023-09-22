@@ -99,6 +99,7 @@ button:hover {
   padding: 0.2rem 1rem;
   display: flex;
   justify-content: right;
+  gap: 0.6rem;
 }
 
 .header > button {
