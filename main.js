@@ -1,6 +1,9 @@
 const screen = document.getElementById("screen");
 const buttons = document.querySelectorAll("button");
 const switchThemeButton = document.getElementById("switch-theme");
+const fractionSeparatorButton = document.getElementById(
+  "switch-fraction-separator",
+);
 const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
 const SCREEN_CHARS = 13;
 const operatorFuncs = {
@@ -231,5 +234,13 @@ function updateThemeButtonText() {
 
 updateScreen();
 updateThemeButtonText();
+
 buttons.forEach((button) => buttonEventListeners(button));
 window.addEventListener("keydown", recogniseKeybindings);
+fractionSeparatorButton.addEventListener("click", () => {
+  commaDecimalSeparator = !commaDecimalSeparator;
+  fractionSeparatorButton.textContent = commaDecimalSeparator
+    ? "Point"
+    : "Comma";
+  updateScreen();
+});
