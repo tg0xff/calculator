@@ -218,6 +218,10 @@ function updateThemeButtonText() {
   switchThemeButton.textContent = darkModePreference.matches ? "Light" : "Dark";
 }
 
+if (darkModePreference.matches) {
+  document.querySelector("html").classList.toggle("dark-mode")
+}
+
 updateScreen();
 updateThemeButtonText();
 
