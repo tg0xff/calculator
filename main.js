@@ -73,8 +73,6 @@ const keysToIds = {
   Insert: "calc-clear",
   KeyC: "calc-clear",
 };
-let backgroundColorContainer = "";
-let boxShadowContainer = "";
 let calculatorNumbers = ["0"];
 let calculatorOperations = [];
 let isDecimalFraction = false;
@@ -127,22 +125,6 @@ function calculateResult() {
     result = result.toString();
     calculatorNumbers.push(result);
   }
-}
-
-function styleWhileClicking(e) {
-  backgroundColorContainer = e.target.style["background-color"];
-  boxShadowContainer = e.target.style["box-shadow"];
-
-  e.target.style["background-color"] = "var(--background-colour)";
-  e.target.style["box-shadow"] = "none";
-}
-
-function styleAfterClicking(e) {
-  e.target.style["background-color"] = backgroundColorContainer;
-  e.target.style["box-shadow"] = boxShadowContainer;
-
-  backgroundColorContainer = "";
-  boxShadowContainer = "";
 }
 
 function updateScreen() {
@@ -244,8 +226,13 @@ switchThemeButton.addEventListener("click", () => {
 });
 
 buttons.forEach((button) => {
-  button.addEventListener("mousedown", styleWhileClicking);
-  button.addEventListener("mouseup", styleAfterClicking);
+  button.addEventListener("mousedown", (e) =>
+    e.target.classList.add("pressed-button"),
+  );
+
+  button.addEventListener("mouseup", (e) =>
+    e.target.classList.remove("pressed-button"),
+  );
 });
 
 calcButtons.forEach((button) =>

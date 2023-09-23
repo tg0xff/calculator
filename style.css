@@ -105,3 +105,13 @@ button:hover {
   font-size: 2rem;
   padding: 0.3rem;
 }
+
+.pressed-button {
+  background-color: var(--background-colour);
+  box-shadow: none;
+  transform: translate(0.3rem, 0.3rem);
+}
+
+.pressed-button:hover {
+  background-color: var(--background-colour);
+}
