@@ -1,6 +1,7 @@
 const html = document.querySelector("html");
 const screen = document.getElementById("screen");
 const buttons = document.querySelectorAll("button");
+const calcButtons = document.querySelectorAll(".buttons-root button");
 const switchThemeButton = document.getElementById("switch-theme");
 const fractionSeparatorButton = document.getElementById(
   "switch-fraction-separator",
@@ -245,8 +246,11 @@ switchThemeButton.addEventListener("click", () => {
 buttons.forEach((button) => {
   button.addEventListener("mousedown", styleWhileClicking);
   button.addEventListener("mouseup", styleAfterClicking);
-  button.addEventListener("click", execButtonAction);
 });
+
+calcButtons.forEach((button) =>
+  button.addEventListener("click", execButtonAction),
+);
 
 window.addEventListener("keydown", (e) => {
   const buttonId = keysToIds[e.code];
