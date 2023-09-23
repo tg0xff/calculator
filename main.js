@@ -1,3 +1,4 @@
+const html = document.querySelector("html");
 const screen = document.getElementById("screen");
 const buttons = document.querySelectorAll("button");
 const switchThemeButton = document.getElementById("switch-theme");
@@ -214,16 +215,32 @@ function execButtonAction(e) {
   updateScreen();
 }
 
-function updateThemeButtonText() {
-  switchThemeButton.textContent = darkModePreference.matches ? "Light" : "Dark";
-}
-
 if (darkModePreference.matches) {
-  document.querySelector("html").classList.toggle("dark-mode")
+  html.classList.add("dark-mode");
+  switchThemeButton.textContent = "Light";
+} else {
+  switchThemeButton.textContent = "Dark";
 }
 
 updateScreen();
-updateThemeButtonText();
+
+darkModePreference.addEventListener("change", (e) => {
+  if (e.matches) {
+    html.classList.add("dark-mode");
+  } else {
+    html.classList.remove("dark-mode");
+  }
+  switchThemeButton.textContent = html.classList.contains("dark-mode")
+    ? "Light"
+    : "Dark";
+});
+
+switchThemeButton.addEventListener("click", () => {
+  html.classList.toggle("dark-mode");
+  switchThemeButton.textContent = html.classList.contains("dark-mode")
+    ? "Light"
+    : "Dark";
+});
 
 buttons.forEach((button) => {
   button.addEventListener("mousedown", styleWhileClicking);
