@@ -243,7 +243,16 @@ window.addEventListener("keydown", (e) => {
   const buttonId = keysToIds[e.code];
   if (buttonId) {
     e.preventDefault();
-    document.getElementById(buttonId).click();
+    const button = document.getElementById(buttonId);
+    button.click();
+    button.classList.add("pressed-button");
+  }
+});
+
+window.addEventListener("keyup", (e) => {
+  const buttonId = keysToIds[e.code];
+  if (buttonId) {
+    document.getElementById(buttonId).classList.remove("pressed-button");
   }
 });
 
