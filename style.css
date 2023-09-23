@@ -2,6 +2,9 @@
   --foreground-colour: #333;
   --background-colour: #fff;
   --hover-colour: #ccc;
+
+  --button-shadow-size: 0.3rem;
+  --button-radius-size: 0.5rem;
 }
 
 :root.dark-mode {
@@ -24,8 +27,9 @@ button {
   color: var(--foreground-colour);
   background-color: var(--background-colour);
   border: none;
-  box-shadow: 0.3rem 0.3rem 0 var(--foreground-colour);
-  border-radius: 0.5rem;
+  box-shadow: var(--button-shadow-size) var(--button-shadow-size) 0
+    var(--foreground-colour);
+  border-radius: var(--button-radius-size);
 }
 
 .buttons-root button {
@@ -41,7 +45,7 @@ button:hover {
   max-width: 28rem;
   min-height: 40rem;
   border: 0.15rem solid var(--foreground-colour);
-  border-radius: 0.5rem;
+  border-radius: var(--button-radius-size);
   margin: 1rem auto 0;
   padding: 1%;
   display: flex;
@@ -60,9 +64,9 @@ button:hover {
   font-family: monospace;
   font-size: 3rem;
   text-align: right;
-  padding: 0.5rem 0.2rem;
+  padding: var(--button-radius-size) 0.2rem;
   border: 0.1rem solid var(--foreground-colour);
-  border-radius: 0.5rem;
+  border-radius: var(--button-radius-size);
   overflow: auto;
 }
 
@@ -103,13 +107,13 @@ button:hover {
 
 .header > button {
   font-size: 2rem;
-  padding: 0.3rem;
+  padding: var(--button-shadow-size);
 }
 
 .pressed-button {
   background-color: var(--background-colour);
   box-shadow: none;
-  transform: translate(0.3rem, 0.3rem);
+  transform: translate(var(--button-shadow-size), var(--button-shadow-size));
 }
 
 .pressed-button:hover {
